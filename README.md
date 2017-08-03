@@ -115,8 +115,7 @@ After this step has been completed, you can run the second program to find match
 
 **scanDatabase** reads in a seed image, the directory of `.yml` files, a filepath to an output json (text) file, and the path to the SURF parameter file.
 
-The program reads in your seed image, extracts the keypoints and descriptors like processImages had, and compares that information with the keypoints and descriptors from every `.yml` file; this is essentially comparing the seed image against every image in the imageset. Each comparison is done using a robust filter, that checks for sensitivity, symmetry, as well as geometric proximity of the matches. Images are then ranked based on the number of matches they have with the seed image. The top three matches are then displayed with the number of matches they contained. There will be two output files: `output.jpg` and `output.txt`.
-
+The program reads in your seed image, extracts the keypoints and descriptors like processImages had, and compares that information with the keypoints and descriptors from every `.yml` file; this is essentially comparing the seed image against every image in the imageset. Each comparison is done using a robust filter, that checks for sensitivity, symmetry, as well as geometric proximity of the matches. Images are then ranked based on the number of matches they have with the seed image.
 ***Using scanDatabase***
 
 
@@ -124,7 +123,7 @@ The program reads in your seed image, extracts the keypoints and descriptors lik
 
 While scanDatabase is running, it will print its progress for every hundred images that it has processed.
 
-	$ ./scanDatabase.exe -i imageset/11000210893_335dee8657_o.jpg -d imageset/ -k keypoints/ -o output.jpg -p param
+	$ ./scanDatabase.exe -i imageset/11000210893_335dee8657_o.jpg -d imageset/ -k keypoints/ -o output.json -p param
 	Processing image # 100 out of 1067 images in the database
 	Processing image # 200 out of 1067 images in the database
 	Processing image # 300 out of 1067 images in the database
@@ -171,6 +170,24 @@ The parameter file should be a `.txt` file that follows this format:
 	min Response: 100
 	$ 
 
+As an alternative to using a parameter file you can directly pass in the SURF paramaters 
+  $ ./executable -h <value> -oct <value> -l <value> -s <value> -r <value>
+
+### BONUS ###
+
+**showKeypoints** takes as input one image, path to output file with .jpg ending, and path to a paramater file. This will display all the keypoints, their size, and orientation onto the input image. This is useful for finding a good set of parameters for your image set
+
+**scanDatabaseImage** does the same thing as scanDatabase but combines the best results into a single image. Takes the same inputs as scanDatabase. Outputs `output.txt` and `output.jpg`. `output.txt` is the ordered images and the number of matches.
+	$ ./scanDatabaseImage.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>
+
+**indexDatabase** Uses same inputs as scanDatabase. However, instead of json format, it outputs in csv format.
+	$ ./indexDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>
+
+  $ cat output.txt
+  seed.jpg,image 22,image2 11,image3 7
+  $
+
+
 #### CONTACT ####
 
-Developed by [Carl Stahmer](http://www.carlstahmer.com) and [Arthur Koehl](avkoehl@ucdavis.edu) at the Data Science Initiative of the University of California Davis. Documentation authored by [Henry Le](hutle@ucdavis.edu).
+Developed by [Arthur Koehl](avkoehl@ucdavis.edu) and [Carl Stahmer](http://www.carlstahmer.com) at the Data Science Initiative of the University of California Davis. Documentation edited by Henry Le.
