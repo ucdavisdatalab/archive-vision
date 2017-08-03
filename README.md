@@ -173,7 +173,9 @@ The parameter file should be a `.txt` file that follows this format:
 
 As an alternative to using a parameter file you can directly pass in the SURF paramaters.
 
-  $ ./executable -h <value> -oct <value> -l <value> -s <value> -r <value>
+
+	$ ./executable -h <value> -oct <value> -l <value> -s <value> -r <value>
+
 
 ### BONUS ###
 
@@ -187,9 +189,9 @@ As an alternative to using a parameter file you can directly pass in the SURF pa
 
 	$ ./indexDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to parameter file>
 
-  $ cat output.txt
-  seed.jpg,image 22,image2 11,image3 7
-  $
+	$ cat output.txt
+	seed.jpg,image 22,image2 11,image3 7
+	$
 
 
 #### CONTACT ####
