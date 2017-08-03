@@ -120,7 +120,7 @@ The program reads in your seed image, extracts the keypoints and descriptors lik
 ***Using scanDatabase***
 
 
-	$ ./scanDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>
+	$ ./scanDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to parameter file>
 
 While scanDatabase is running, it will print its progress for every hundred images that it has processed.
 
@@ -179,14 +179,14 @@ As an alternative to using a parameter file you can directly pass in the SURF pa
 **showKeypoints** takes as input one image, path to output file with .jpg ending, and path to a paramater file. This will display all the keypoints, their size, and orientation onto the input image. This is useful for finding a good set of parameters for your image set
 
 **scanDatabaseImage** does the same thing as scanDatabase but combines the best results into a single image. Takes the same inputs as scanDatabase. Outputs `output.txt` and `output.jpg`. `output.txt` is the ordered images and the number of matches.
-	`$ ./scanDatabaseImage.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>`
+	$ ./scanDatabaseImage.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>
 
 **indexDatabase** Uses same inputs as scanDatabase. However, instead of json format, it outputs in csv format.
-	`$ ./indexDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>`
+	$ ./indexDatabase.exe -i <path to seed image> -d <path to input directory> -k <path to keypoints directory> -o <path to output file> -p <path to SURF parameter file>
 
-  `$ cat output.txt
+  $ cat output.txt
   seed.jpg,image 22,image2 11,image3 7
-  $`
+  $
 
 
 #### CONTACT ####
