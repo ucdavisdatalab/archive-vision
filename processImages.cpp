@@ -111,8 +111,10 @@ int main(int argc, char **argv)
     filter_keypoints (keypoints, sizemin, responsemin);
     //cout << "  after filter: " << keypoints.size() << endl;
 
+    string parameters = "";
     //write into output file
     FileStorage fs (nameful, FileStorage::WRITE);
+    fs << "parameters" << "minh 80 octaves 10 layers 10 sizemin 80 responsemin 100";
     fs << "keypoints" << keypoints;
     if (keypoints.size() > 0)
     {
