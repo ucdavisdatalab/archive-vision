@@ -114,7 +114,7 @@ int main(int argc, char **argv)
     string parameters = "";
     //write into output file
     FileStorage fs (nameful, FileStorage::WRITE);
-    fs << "parameters" << "minh 80 octaves 10 layers 10 sizemin 80 responsemin 100";
+    fs << "parameters" << "minh " << minh << " octaves and layers " << octaves << " sizemin " << sizemin << " responsemin " <<  responsemin;
     fs << "keypoints" << keypoints;
     if (keypoints.size() > 0)
     {
