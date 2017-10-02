@@ -111,11 +111,15 @@ int main(int argc, char **argv)
     filter_keypoints (keypoints, sizemin, responsemin);
     //cout << "  after filter: " << keypoints.size() << endl;
 
-    string parameters = "";
     //write into output file
     FileStorage fs (nameful, FileStorage::WRITE);
-    fs << "parameters" << "minh " << minh << " octaves and layers " << octaves << " sizemin " << sizemin << " responsemin " <<  responsemin;
+    fs << "minh" << minh;
+    fs << "octaves" << octaves;
+    fs << "layers" << layers;
+    fs << "sizemin" << sizemin;
+    fs << "responsemin" <<  responsemin;
     fs << "keypoints" << keypoints;
+
     if (keypoints.size() > 0)
     {
       extractor->compute (image, keypoints, descriptors);
