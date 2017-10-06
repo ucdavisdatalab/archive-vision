@@ -1,7 +1,7 @@
 /* ===============================================================================================
    makeAdjacency .cpp            Version 2               10/06/2017            Arthur Koehl
 
-   A specialized version of scanDatabase.cpp's functionality. This has only one input parameter:
+   A specialized version of indexDatabase.cpp's functionality. This has only one input parameter:
    a single image file. It then compares that image file with a directory of preprocessed images.
    The output is a text file, named after the input image. (image.jpg -> image.jpg.txt). This
    file contains one line, with the image, its matches and the score.
