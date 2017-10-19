@@ -113,6 +113,7 @@ int main(int argc, char **argv)
 
     //write into output file
     FileStorage fs (nameful, FileStorage::WRITE);
+    fs << "numkeypoints" << int(keypoints.size());
     fs << "minh" << minh;
     fs << "octaves" << octaves;
     fs << "layers" << layers;
