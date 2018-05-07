@@ -62,19 +62,19 @@ int main(int argc, char** argv)
    (1) Initialize all varaibles and surf parameters (2) parse command line (3) read in parameters 
    =============================================================================================== */
   string imgfile, imgdir, infodir, output;
-  int minh = 2000;
-  int octaves = 10;
-  int layers = 10;
-  int sizemin = 80;
+  int minh = 1000;
+  int octaves = 8;
+  int layers = 8;
+  int sizemin = 60;
   double responsemin = 100;
   double scale = 1;
   double ratio = 0.8;
   string img = argv[1];
   imgfile = img;
 
-  imgdir = "/data_small/ds/ebba_ibba/Finished-Images/";
-  infodir = "/data_small/ds/ebba_ibba/keypoints/keypoints_10_2017/";
-  output = "/data_small/ds/ebba_ibba/matches/matches_10_2017/";
+  imgdir = "/data_small/ds/ebba_ibba/flickr/images/";
+  infodir = "/data_small/ds/ebba_ibba/flickr/keypoints/keypoints_flickr_10_2017/";
+  output = "/data_small/ds/ebba_ibba/flickr/matches/matches_flickr_05_2018/";
 
 
   // data collection
@@ -229,8 +229,8 @@ int main(int argc, char** argv)
 		  distval[counter] = matches.size();
       postransac = matches.size();
       ofstream outputfile(datafile.c_str(), std::ios_base::app);
-      outputfile << imgfile << "," << filename << "," << nkeypoints1 << "," << nkeypoints2 << ","
-                 << bruteforcematch << "," << postratio << "," << postsymmetry << "," << postransac;
+      outputfile << imgfile << "," << filename << "," << nkeypoints1 << "," << postfilter << "," << nkeypoints2 << ","
+                 << bruteforcematch << "," << postratio << "," << postsymmetry << "," << postransac << endl;
       outputfile.close();
 
 	 }
